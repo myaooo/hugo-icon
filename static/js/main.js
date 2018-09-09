@@ -18,44 +18,44 @@
 
 	var fullHeight = function() {
 		if ( !isiPad() || !isiPhone() ) {
-			$('.js-fullheight-home').css('height', $(window).height() - $('.fh5co-main-nav').height());
+			$('.js-fullheight-home').css('height', $(window).height() - $('.main-nav').height());
 			$(window).resize(function(){
-				$('.js-fullheight-home').css('height', $(window).height()  - $('.fh5co-main-nav').height());
+				$('.js-fullheight-home').css('height', $(window).height()  - $('.main-nav').height());
 			})
 		}
 	};
 
 	// Loading page
 	var loaderPage = function() {
-		$(".fh5co-loader").fadeOut("slow");
+		$(".xai-loader").fadeOut("slow");
 	};
 
 	var fh5coTabs = function() {
-		// $('.fh5co-tabs-container').
-		$('.fh5co-tabs li a').click(function(event){
+		// $('.xai-tabs-container').
+		$('.xai-tabs li a').click(function(event){
 			event.preventDefault();
 			var $this = $(this),
 				tab = $this.data('tab');
-				$('.fh5co-tabs li').removeClass('active');
+				$('.xai-tabs li').removeClass('active');
 				$this.closest('li').addClass('active');
-				$this.closest('.fh5co-tabs-container').find('.fh5co-tab-content').removeClass('active');
-				$this.closest('.fh5co-tabs-container').find('.fh5co-tab-content[data-tab-content="'+tab+'"]').addClass('active');
+				$this.closest('.xai-tabs-container').find('.xai-tab-content').removeClass('active');
+				$this.closest('.xai-tabs-container').find('.xai-tab-content[data-tab-content="'+tab+'"]').addClass('active');
 		});
 	}
 
 	var gridAutoHeight = function() {
 		if (!isiPhone() || !isiPad()) {
-			$('.fh5co-grid-item').css('height', $('.fh5co-2col-inner').outerHeight()/2);
+			$('.xai-grid-item').css('height', $('.xai-2col-inner').outerHeight()/2);
 		}
 		$(window).resize(function(){
 			if (!isiPhone() && !isiPad()) {
-				$('.fh5co-grid-item').css('height', $('.fh5co-2col-inner').outerHeight()/2);
+				$('.xai-grid-item').css('height', $('.xai-2col-inner').outerHeight()/2);
 			}
 		});
 	}
 
 	var sliderSayings = function() {
-		$('#fh5co-sayings .flexslider').flexslider({
+		$('#xai-sayings .flexslider').flexslider({
 			animation: "slide",
 			slideshowSpeed: 5000,
 			directionNav: false,
@@ -66,17 +66,17 @@
 	}
 
 	var offcanvasMenu = function() {
-		$('body').prepend('<div id="fh5co-offcanvas" />');
-		$('body').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>');
+		$('body').prepend('<div id="xai-offcanvas" />');
+		$('body').prepend('<a href="#" class="js-xai-nav-toggle xai-nav-toggle"><i></i></a>');
 
-		$('.fh5co-main-nav .fh5co-menu-1 a, .fh5co-main-nav .fh5co-menu-2 a').each(function(){
+		$('.main-nav .xai-menu-1 a, .main-nav .xai-menu-2 a').each(function(){
 
 			var $this = $(this);
 
-			$('#fh5co-offcanvas').append($this.clone());
+			$('#xai-offcanvas').append($this.clone());
 
 		});
-		// $('#fh5co-offcanvas').append
+		// $('#xai-offcanvas').append
 	};
 
 	var mainMenuSticky = function() {
@@ -88,7 +88,7 @@
 			sticky.css('height', sticky.height());
 		});
 
-		var $section = $('.fh5co-main-nav');
+		var $section = $('.main-nav');
 		
 		$section.waypoint(function(direction) {
 		  	
@@ -99,7 +99,7 @@
 			    		'top' : 0,
 			    		'width' : '100%',
 			    		'z-index' : 99999
-			    	}).addClass('fh5co-shadow');;
+			    	}).addClass('xai-shadow');;
 
 			}
 
@@ -109,7 +109,7 @@
 
 		$('.js-sticky').waypoint(function(direction) {
 		  	if (direction === 'up') {
-		    	$section.attr('style', '').removeClass('fh5co-shadow');
+		    	$section.attr('style', '').removeClass('xai-shadow');
 		  	}
 		}, {
 		  	offset: function() { return -$(this.element).height() + 69; }
@@ -121,9 +121,11 @@
 	var parallax = function() {
 
 		// $(window).stellar();
-		if (!isiPhone() || isiPad() ) {
- 			$(window).stellar({ horizontalScrolling: false });
- 		}
+		$(window).stellar({ horizontalScrolling: false });
+
+		// if (!isiPhone() || isiPad() ) {
+ 		// 	$(window).stellar({ horizontalScrolling: false });
+ 		// }
 
 	};
 
@@ -131,15 +133,15 @@
 	// Burger Menu
 	var burgerMenu = function() {
 
-		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
+		$('body').on('click', '.js-xai-nav-toggle', function(event){
 
 			var $this = $(this);
 
 			if( $('body').hasClass('offcanvas-visible') ) {
-				$('body').removeClass('offcanvas-visible fh5co-overflow');
+				$('body').removeClass('offcanvas-visible xai-overflow');
 				$this.removeClass('active');
 			} else {
-				$('body').addClass('offcanvas-visible fh5co-overflow');
+				$('body').addClass('offcanvas-visible xai-overflow');
 				$this.addClass('active');
 			}
 
@@ -158,7 +160,7 @@
 			
 		   if ( $('body').hasClass('offcanvas-visible') ) {
 		   	$('body').removeClass('offcanvas-visible');
-		   	$('.js-fh5co-nav-toggle').removeClass('active');
+		   	$('.js-xai-nav-toggle').removeClass('active');
 		   }
 
 		});
@@ -166,7 +168,7 @@
 		$(window).resize(function() {
 			if ( $('body').hasClass('offcanvas-visible') ) {
 		   	$('body').removeClass('offcanvas-visible');
-		   	$('.js-fh5co-nav-toggle').removeClass('active');
+		   	$('.js-xai-nav-toggle').removeClass('active');
 		   }
 		});
 		
@@ -176,13 +178,13 @@
 	var mobileMenuOutsideClick = function() {
 
 		$(document).click(function (e) {
-	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
+	    var container = $("#xai-offcanvas, .js-xai-nav-toggle");
 	    if (!container.is(e.target) && container.has(e.target).length === 0) {
 
 	    	if ( $('body').hasClass('offcanvas-visible') ) {
 
     			$('body').removeClass('offcanvas-visible');
-    			$('.js-fh5co-nav-toggle').removeClass('active');
+    			$('.js-xai-nav-toggle').removeClass('active');
 				
 	    	}
 	    
@@ -226,7 +228,7 @@
 		$(window).resize(function(){
 			topVal = ( $(window).width() < 769 ) ? 0 : 58;		
 		});
-		$('.fh5co-main-nav a:not([class="external"]), #fh5co-offcanvas a:not([class="external"]), a.fh5co-content-nav:not([class="external"])').click(function(event){
+		$('.main-nav a:not([class="external"]), #xai-offcanvas a:not([class="external"]), a.xai-content-nav:not([class="external"])').click(function(event){
 			var section = $(this).data('nav-section');
 
 				if ( $('div[data-section="' + section + '"]').length ) {
@@ -248,8 +250,8 @@
 	// Reflect scrolling in navigation
 	var navActive = function(section) {
 		
-		$('.fh5co-main-nav a[data-nav-section], #fh5co-offcanvas a[data-nav-section]').removeClass('active');
-		$('.fh5co-main-nav, #fh5co-offcanvas').find('a[data-nav-section="'+section+'"]').addClass('active');
+		$('.main-nav a[data-nav-section], #xai-offcanvas a[data-nav-section]').removeClass('active');
+		$('.main-nav, #xai-offcanvas').find('a[data-nav-section="'+section+'"]').addClass('active');
 		
 	};
 

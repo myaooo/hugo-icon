@@ -1,26 +1,28 @@
 <div class="js-sticky">
-  <div class="fh5co-main-nav">
+  <div class="main-nav">
     <div class="container">
-      <div class="fh5co-menu-1">
+      <div class="xai-menu-1">
 
-	<a href="#" data-nav-section="home">{{ with .Site.Params.nav }}{{ if isset . "logo" }}<img src={{ .logo | absURL }} height="20" alt="">{{ end }}{{ if (not (isset . "logo")) }}Home{{ end }}{{ end }}</a>
+  <a href="#" data-nav-section="home">{{ with .Site.Params.nav }}{{ if isset . "logo" }}<img src={{ .logo | absURL }} height="20" alt="">{{ end }}{{ if (not (isset . "logo")) }}Home{{ end }}{{ end }}</a>
+  {{ range sort .Site.Params.nav.menu "weight" }}
+    <a href="{{ .url }}" data-nav-section="{{ .section }}">{{ .title | markdownify }}</a>
+  {{ end }}
+  <!-- {{ if .Site.Params.mission.enable }}
+  <a href="#" data-nav-section="mission">{{ with .Site.Params.nav.mission }}{{ . | markdownify }}{{ end }}</a>
+  {{ end }}
 
-	{{ if .Site.Params.mission.enable }}
-	<a href="#" data-nav-section="mission">{{ with .Site.Params.nav.mission }}{{ . | markdownify }}{{ end }}</a>
-	{{ end }}
+  {{ if .Site.Params.services.enable }}
+  <a href="#" data-nav-section="services">{{ with .Site.Params.nav.services }}{{ . | markdownify }}{{ end }}</a>
+  {{ end }}
 
-	{{ if .Site.Params.services.enable }}
-	<a href="#" data-nav-section="services">{{ with .Site.Params.nav.services }}{{ . | markdownify }}{{ end }}</a>
-	{{ end }}
+  {{ if .Site.Params.team.enable }}
+  <a href="#" data-nav-section="team">{{ with .Site.Params.nav.team }}{{ . | markdownify }}{{ end }}</a>
+  {{ end }}
 
-	{{ if .Site.Params.team.enable }}
-	<a href="#" data-nav-section="team">{{ with .Site.Params.nav.team }}{{ . | markdownify }}{{ end }}</a>
-	{{ end }}
-
-	{{ if .Site.Params.contact.enable }}
-	<a href="#" data-nav-section="contact">{{ with .Site.Params.nav.contact }}{{ . | markdownify }}{{ end }}</a>
-	{{ end }}
-	
+  {{ if .Site.Params.contact.enable }}
+  <a href="#" data-nav-section="contact">{{ with .Site.Params.nav.contact }}{{ . | markdownify }}{{ end }}</a>
+  {{ end }} -->
+  
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
-<div id="fh5co-gallery">
+<div id="gallery">
   {{ range .Site.Params.work.item }}
-  <a href="{{ .img | absURL }}" class="fh5co-item image-popup" style="background-image: url({{ .img | absURL }})">
-    <div class="fh5co-overlay"></div>
-    <div class="fh5co-copy">
-      <div class="fh5co-copy-inner">
+  <a href="{{ .img | absURL }}" class="xai-item image-popup" style="background-image: url({{ .img | absURL }})">
+    <div class="xai-overlay"></div>
+    <div class="xai-copy">
+      <div class="xai-copy-inner">
 	<h2>{{ .title | markdownify }}</h2>
 	{{ if isset . "subtitle" }}
 	<h3>{{ .subtitle | markdownify }}</h3>
@@ -12,4 +12,4 @@
     </div>
   </a>
   {{ end }}
-</div> <!-- END fh5co-gallery -->
+</div> <!-- END xai-gallery -->
